@@ -12,7 +12,7 @@
 <body class="antialiased">
 
     <nav>
-        <a href="/">Princiopal</a>
+        <a href="/">Principal</a>
         <a href="/nosotros">nosotros</a>
         <a href="/tienda-virtual">tienda</a>
         <a href="/contacto">contacto</a>
