@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('titulo')
-    pagina del yield principal
+    Página principal
 @endsection
 
 
 @section('contenido')
-    contenido de la sección Princiopal
+        Contenido principal
 @endsection

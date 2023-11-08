@@ -8,19 +8,30 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="antialiased">
+<body class="bg-gray-100">
 
-    <nav>
-        <a href="/">Principal</a>
-        <a href="/nosotros">nosotros</a>
-        <a href="/tienda">tienda</a>
-        <a href="/contacto">contacto</a>
-    </nav>
+    <header class="p-5 border-b bg-emerald-700 shadow">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-black">
+                Devstagram
+            </h1>
+            <nav>
+                <a href="#" class="font-bolt uppercase text-gray-600 text-sm">Login</a>
+                <a href="{{route('register')}}" class="font-bolt uppercase text-gray-600 text-sm">Crear cuenta</a>
+            </nav>
+        </div>
+    </header>
 
+    <main class="container mx-auto mt-10">
+        <h2 class="font-black text-center text-3xl mb-10">
+            @yield('titulo')
+        </h2>
+            @yield('contenido')
+    </main>
 
-    <h1 class="text-5xl font-extrabold">@yield('titulo')</h1>
-    <hr>
-    <p>@yield('contenido')</p>
+    <footer class="mt-10 text-center p-5 text-gray-500 font-bold uppercase">
+    devstagram - todos los derechos reservados {{now()->year}}
+    </footer>
 
 </body>
 

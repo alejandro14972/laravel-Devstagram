@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,11 +18,9 @@ Route::get('/', function () {
     return view('principal');
 });
 
-Route::get('/nosotros', function () {
-    return view('nosotros');
-});
+/* añadir con use la importacion dela clase controlador y el metodo index para su vista. se pueden añadir mas metodos */
+Route::get('/register',[RegisterController::class, 'index'])->name('register');
+Route::post('/register',[RegisterController::class, 'store']);
 
-Route::get('/tienda', function () {
-    return view('tienda');
-});
+
 
