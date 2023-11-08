@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('titulo')
-    tienda virtual
+    tienda virtual tailwind
 @endsection
 
-
-@section('contenido')
-    contenido de la tienda 
-@endsection
