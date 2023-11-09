@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('titulo')
-Registrate
+Registrate devstagram
 @endsection
 
 
@@ -13,7 +13,7 @@ Registrate
     </div>
 
     <div class="md:w-4/12  bg-white p-6 rounded-lg shadow-lg">
-        <form action="{{route('register')}}" method="POST">
+        <form action="{{route('register')}}" method="POST" novalidate>
             @csrf
             <div class="mb-5">
                 <label for="name" for="" class="mb-2 block uppercase text-gray-500 font-bold">
@@ -48,8 +48,16 @@ Registrate
                 id="username" 
                 name="username" 
                 placeholder="Tu nombre de usuario"
-                class="border p-3 w-full rounded-lg"
+                class="border p-3 w-full rounded-lg 
+                       @error('username')
+                         border-red-500
+                         value={{old('username')}}
+                       @enderror"
                 >
+
+                @error('username')
+                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{$message}}</p>
+                @enderror
             </div>
 
             <div class="mb-5">
@@ -57,25 +65,20 @@ Registrate
                     Email
                 </label>
                 <input 
-                type="text" 
+                type="email" 
                 id="email" 
                 name="email" 
                 placeholder="Tu email"
-                class="border p-3 w-full rounded-lg"
+                class="border p-3 w-full rounded-lg 
+                       @error('email')
+                         border-red-500
+                         value={{old('email')}}
+                       @enderror"
                 >
-            </div>
 
-            <div class="mb-5">
-                <label for="tlfo" for="" class="mb-2 block uppercase text-gray-500 font-bold">
-                    tlfo
-                </label>
-                <input 
-                type="text" 
-                id="tlfo" 
-                name="tlfo" 
-                placeholder="Tu email"
-                class="border p-3 w-full rounded-lg"
-                >
+                @error('email')
+                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{$message}}</p>
+                @enderror
             </div>
 
             <div class="mb-5">
@@ -83,12 +86,21 @@ Registrate
                     Password
                 </label>
                 <input 
-                type="text" 
+                type="password" 
                 id="password" 
                 name="password" 
                 placeholder="Contraeña"
-                class="border p-3 w-full rounded-lg"
+                class="border p-3 w-full rounded-lg 
+                       @error('password')
+                         border-red-500
+                         value={{old('password')}}
+                       @enderror"
                 >
+
+                @error('password')
+                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{$message}}</p>
+                @enderror
+
             </div>
 
             <div class="mb-5">
@@ -96,11 +108,15 @@ Registrate
                     Repite password
                 </label>
                 <input 
-                type="text" 
+                type="password" 
                 id="password_confirmation" 
                 name="password_confirmation" 
                 placeholder="Repite tu contraeña"
-                class="border p-3 w-full rounded-lg"
+                class="border p-3 w-full rounded-lg 
+                       @error('password_confirmation')
+                         border-red-500
+                         value={{old('password_confirmation')}}
+                       @enderror"
                 >
             </div>
 
