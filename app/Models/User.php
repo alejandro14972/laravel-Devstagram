@@ -17,10 +17,11 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
+    protected $fillable = [ /* los datos que esperamos que el usuario nos de */
         'name',
         'email',
         'password',
+        'username' /* campo extra via una migracion */
     ];
 
     /**

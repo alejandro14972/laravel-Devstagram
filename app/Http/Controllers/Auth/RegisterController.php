@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash; /* para la seguridad de la pass en la bbdd  */
+use Illuminate\Support\Str;
+
 
 class RegisterController extends Controller
 {
@@ -17,6 +21,11 @@ class RegisterController extends Controller
 
        // dd($request->get('email'));
 
+
+/* modificar el request */
+$request->request->add(['username'=>  Str::slug($request->username)]);  /* https://laravel.com/docs/10.x/helpers */
+
+
        //validación del form
 
        $this->validate($request,[
@@ -27,9 +36,17 @@ class RegisterController extends Controller
        ]);
 
 
-       dd("creando usuario");
+       /* equivale al insert into */
+       User::create([
+        'name' =>$request->name,
+        'username' =>$request->username, 
+        'email' => $request->email,
+        'password' => Hash::make($request->password)
+       ]);
 
 
+       /* redireccionar al usuario*/
+return redirect()->route('post.index');
     }
 
 }
