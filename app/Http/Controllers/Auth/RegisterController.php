@@ -22,7 +22,7 @@ class RegisterController extends Controller
        // dd($request->get('email'));
 
 
-/* modificar el request */
+/* modificar el request del username*/
 $request->request->add(['username'=>  Str::slug($request->username)]);  /* https://laravel.com/docs/10.x/helpers */
 
 
@@ -45,8 +45,22 @@ $request->request->add(['username'=>  Str::slug($request->username)]);  /* https
        ]);
 
 
+       /* autentificar usuario */
+
+      /*  auth()->attempt([
+        'email' =>$request->email,
+        'password'=>$request->password
+       ]); */
+       /* otra forma de autentificar */
+
+       auth()->attempt(
+        $request->only('email', 'password')
+       );
+
        /* redireccionar al usuario*/
-return redirect()->route('post.index');
+        return redirect()->route('post.index');
+
+
     }
 
 }
