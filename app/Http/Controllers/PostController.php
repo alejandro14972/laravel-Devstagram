@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -12,11 +13,13 @@ class PostController extends Controller
       $this->middleware('auth');
     }
 
-    public function index(){
-       // dd('desde muro');
+    public function index(User $user){
+        //dd($user);
 
       // dd(auth()->user()); /* helper que nos dice que usuario esta registrado */
 
-      return view('dashboard');
+      return view('dashboard',[
+        'user'=>$user
+      ]);
     }
 }

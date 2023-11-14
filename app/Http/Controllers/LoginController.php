@@ -28,7 +28,7 @@ class LoginController extends Controller
            return back()->with('mensaje', 'Credenciales incorrectas');//si las credenciales son incorrectas enviamos este mensaje al login.blade
         }
 
-        return redirect()->route('post.index');
+        return redirect()->route('post.index', auth()->user()->username);
 
     }
 

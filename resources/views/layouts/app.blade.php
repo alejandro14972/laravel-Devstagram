@@ -40,7 +40,7 @@
 
             @guest
             <nav>
-                <a href="#" class="font-bolt uppercase text-gray-600 text-sm">
+                <a href="{{route('login')}}" class="font-bolt uppercase text-black-600 text-sm">
                     Login
                 </a>
 
