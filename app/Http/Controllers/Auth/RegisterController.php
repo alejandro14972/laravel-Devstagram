@@ -58,7 +58,7 @@ $request->request->add(['username'=>  Str::slug($request->username)]);  /* https
        );
 
        /* redireccionar al usuario*/
-        return redirect()->route('post.index');
+        return redirect()->route('post.index', auth()->user()->username);
 
 
     }

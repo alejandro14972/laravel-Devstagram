@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('titulo')
-    Perfil: {{$user->username}}
+    Perfil: {{$user->username}}<br>
+    Correo: {{$user->email}}
 <hr>
 <div class="flex justify-center">
     <div class="w-full md:w-8/12 lg:w-6/12 flex flex-col items-center md:flex-row">
