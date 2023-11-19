@@ -4,12 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{-- <script src="{{asset('js/app.js')}}"></script> --}}
-    @stack('styles')
+    @stack('styles') {{-- esto sirve para usar estilos css en algunos sitios. se usa en create.blade del los post --}}
     <title>Devstagram - @yield('titulo')</title>
     @vite('resources/css/app.css')
-    
-    {{-- <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script> --}}
     @vite('resources/js/app.js')
     
 </head>

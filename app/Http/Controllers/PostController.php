@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+
 class PostController extends Controller
 {
     //
@@ -21,7 +22,15 @@ class PostController extends Controller
       ]);
     }
 
-    public function create(){ //creamos la clase usewr coomo parametro
+    public function create(){ //nos permite visualizar el form
       return view('post.create');
   }
+
+  public function store(Request $request){ //almacena en la bbdd
+    $this->validate($request,[
+      'titulo'=>'required|max:255',
+      'descripcion'=>'required|max:255',
+      'imagen'=>'required'
+    ]);
+}
 }

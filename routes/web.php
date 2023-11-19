@@ -32,7 +32,7 @@ Route::post('/logout',[LogoutController::class, 'store'])->name('logout');
 
 /* Route::get('/{user:username}',[PostController::class, 'index'])->name('post.index'); */ /* rutas dinamicas dependiendo del login derl usuario */
 Route::get('{user:username}',[PostController::class, 'index'])->name('post.index');
-Route::get('/post/create',[PostController::class, 'create'])->name('post.create');
-
+Route::get('/post/create',[PostController::class, 'create'])->name('post.create'); //validacion de la vista
+Route::post('/post',[PostController::class, 'store'])->name('post.store');
 
 Route::post('/imagenes', [ImagenController::class, 'store'])->name('imagenes.store');

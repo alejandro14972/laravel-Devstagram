@@ -7,17 +7,20 @@ const dropzone = new Dropzone('#dropzone', {
     acceptedFiles: ".png,.jpg,.jpeg,.gif",
     addRemoveLinks: true, //elimanr su imagen
     dictRemoveFile: 'borrar archivo',
-    maxFiles: 1,
+    maxFiles: 3,
     uploadMultiple: false,
 });
 
 
-dropzone.on('sending', function (file, xhr, formData) {
+/* dropzone.on('sending', function (file, xhr, formData) {
     console.log(file);
-})
+    
+}) */
 
 dropzone.on("success", function (file, response) {
     console.log(response);
+    console.log(response.imagen);
+    document.querySelector("#ocultoinput").value = response.imagen;
 })
 
 dropzone.on("error", function (file, message) {
