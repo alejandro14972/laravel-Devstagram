@@ -32,12 +32,12 @@
                     name="titulo" 
                     placeholder="Tu título de la publicación"
                     class="border p-3 w-full rounded-lg 
+                    
                            @error('titulo')
                              border-red-500
-                             value={{old('titulo')}}
-                           @enderror"
+                             
+                           @enderror" value={{old('titulo')}}
                     >
-                    {{-- directiva de error en el formulario para validación del form --}}
                     @error('titulo')
                         <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{$message}}</p>
                     @enderror
@@ -56,9 +56,6 @@
                              border-red-500
                            @enderror"
                     >{{old('descripcion')}}</textarea>
-    
-                    {{-- directiva de error en el formulario para validación del form --}}
-    
                     @error('descripcion')
                         <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{$message}}</p>
                     @enderror
@@ -66,7 +63,7 @@
 
 
                 <div>
-                    <input type="hidden" name="imagen" id="ocultoinput">
+                    <input type="hidden" name="imagen" id="ocultoinput" value="{{old('imagen')}}">
                     @error('imagen')
                         <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{$message}}</p>
                     @enderror
