@@ -16,10 +16,14 @@ class PostController extends Controller
     }
 
     public function index(User $user){ //creamos la clase usewr coomo parametro
-        //dd($user->email);
-      // dd(auth()->user()); /* helper que nos dice que usuario esta registrado */
+        //dd($user->email);  // dd(auth()->user()); /* helper que nos dice que usuario esta registrado */
+
+      $posts= Post::where('user_id', $user->id)->paginate(4); //consulta de los post del usuario
+      //dd($posts); //puedo uasr ->get() para sacar todo
+
       return view('dashboard',[
-        'user'=>$user
+        'user'=>$user,
+        'posts'=>$posts
       ]);
     }
 
@@ -52,4 +56,12 @@ class PostController extends Controller
 
     return redirect()->route('post.index', auth()->user()->username);
 }
+
+public function show(Post $post){
+  return view('post.show',[
+    'post'=>$post
+  ]);
+}
+
+
 }

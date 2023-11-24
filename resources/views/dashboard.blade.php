@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('titulo')
-    Perfil: {{$user->username}}<br>
-    Correo: {{$user->email}}
+    {{$user->username}}
+    {{-- Correo: {{$user->email}} --}}
 <hr>
 <div class="flex justify-center">
     <div class="w-full md:w-8/12 lg:w-6/12 flex flex-col items-center md:flex-row">
@@ -37,6 +37,33 @@
         </div>
     </div>
 </div>
+
+<section class="conttainer mx-auto mt-10">
+    <h2 class="text-4xl text-center font-black my-10">
+        Publicaciones
+    </h2>
+
+    @if ($posts->count())
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    @foreach ($posts as $post)
+        <div>
+            <a href="{{route('posts.show', $post)}}">
+                <img src="{{asset('uploads').'/'.$post->imagen}}" alt="{{$post->imagen}}">
+            </a>
+           
+        </div>
+    @endforeach
+</div>
+
+<div>
+    {{$posts->links('pagination::simple-tailwind')}} {{-- paginación de la página. mirar archivo tailwind.config.js--}}
+</div>
+
+    @else
+        <p class="uppercase text-gray-950 text-sm text-center font-bold"> no hay posts</p>
+    @endif
+
+</section>
 
 
 @endsection

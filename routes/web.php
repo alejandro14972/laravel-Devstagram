@@ -30,9 +30,11 @@ Route::get('/login',[LoginController::class, 'index'])->name('login');
 Route::post('/login',[LoginController::class, 'store']);
 Route::post('/logout',[LogoutController::class, 'store'])->name('logout');
 
-/* Route::get('/{user:username}',[PostController::class, 'index'])->name('post.index'); */ /* rutas dinamicas dependiendo del login derl usuario */
-Route::get('{user:username}',[PostController::class, 'index'])->name('post.index');
+/* Route::get('/{user:username}',[PostController::class, 'index'])->name('post.index'); */ 
+Route::get('{user:username}',[PostController::class, 'index'])->name('post.index'); /* rutas dinamicas dependiendo del login derl usuario route model baindin*/
 Route::get('/post/create',[PostController::class, 'create'])->name('post.create'); //validacion de la vista
-Route::post('/post',[PostController::class, 'store'])->name('post.store');
+Route::post('/post',[PostController::class, 'store'])->name('post.store'); //pasar datos  a la bbdd
+Route::get('/posts/{post}',[PostController::class, 'show'])->name('posts.show'); //visualizar un post en nueva pagina
+
 
 Route::post('/imagenes', [ImagenController::class, 'store'])->name('imagenes.store');
