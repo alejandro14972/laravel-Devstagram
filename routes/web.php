@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -34,7 +35,9 @@ Route::post('/logout',[LogoutController::class, 'store'])->name('logout');
 Route::get('{user:username}',[PostController::class, 'index'])->name('post.index'); /* rutas dinamicas dependiendo del login derl usuario route model baindin*/
 Route::get('/post/create',[PostController::class, 'create'])->name('post.create'); //validacion de la vista
 Route::post('/post',[PostController::class, 'store'])->name('post.store'); //pasar datos  a la bbdd
-Route::get('/posts/{post}',[PostController::class, 'show'])->name('posts.show'); //visualizar un post en nueva pagina
+Route::get('/{user:username}/posts/{post}',[PostController::class, 'show'])->name('posts.show'); //visualizar un post en nueva pagina
+
+Route::post('/{user:username}/posts/{post}',[ComentarioController::class, 'store'])->name('comentarios.store'); //ruta para crear comentarios de post. pasamos el post y user name
 
 
 Route::post('/imagenes', [ImagenController::class, 'store'])->name('imagenes.store');

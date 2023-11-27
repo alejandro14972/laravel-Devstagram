@@ -18,11 +18,6 @@
             <h1 class="text-3xl font-black">
                 Devstagram
             </h1>
-           <!--  @if(auth()->user())
-                <p>autenticado</p>
-            @else
-                <p>no autenticado</p>
-            @endif -->
 
             @auth
             <nav class="flex gap-2 items-center">
