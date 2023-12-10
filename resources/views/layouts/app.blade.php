@@ -13,8 +13,11 @@
 
 <body class="bg-gray-100">
 
-    <header class="p-5 border-b bg-emerald-700 shadow">
+    <header class="p-5 border-b bg-yellow-500 shadow">
         <div class="container mx-auto flex justify-between items-center">
+            {{-- <div class="md:w-1/12 lg:w-1/12 px-1">
+                <img src="{{ asset('img/logo.jpg') }}" alt="">
+            </div> --}}
             <h1 class="text-3xl font-black">
                 Devstagram
             </h1>
@@ -70,7 +73,7 @@
     </main>
 
     <footer class="mt-10 text-center p-5 text-gray-500 font-bold uppercase">
-    devstagram - todos los derechos reservados {{now()->year}}
+    Devstagram - Todos los derechos reservados {{now()->year}}
     </footer>
 
 </body>

@@ -55,7 +55,7 @@
     @endforeach
 </div>
 
-<div>
+<div class="mt-4">
     {{$posts->links('pagination::simple-tailwind')}} {{-- paginación de la página. mirar archivo tailwind.config.js--}}
 </div>
 

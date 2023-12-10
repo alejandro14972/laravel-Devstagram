@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('titulo')
-{{$post->titulo}}<br>
-{{$post->descripcion}}
+{{$post->titulo}}
 
 @endsection
 
@@ -11,18 +10,42 @@
 
 <div class="container mx-auto md:flex">
     <div class="md:w-1/2">
-<img src="{{asset('uploads'.'/'.$post->imagen)}}" alt="">
+        <img src="{{asset('uploads'.'/'.$post->imagen)}}" alt="">
+
+
+<div class="container mx-auto md:flex">
+<div class="md:w-1/2">
     <div class="p-3">
         2 <span class="text-red-500 font-bold">likes</span>
     </div>
-    <div class="font-bold">
-        {{$post->user->username}} {{-- podemos sacar este dato de esta manera porque model post saca una consulta que selecciona el nombre y el username --}}
-        <p class="text-sm text-gray-950">{{$post->created_at->diffForHumans()}}</p> {{-- uso de la libreria carbon --}}
-        <p class="mt-5">
-            {{$post->descripcion}}
-        </p>
-    </div>
 </div>
+
+<div class="md:w-1/2 p-3 text-right">
+    {{$post->user->username}} {{-- podemos sacar este dato de esta manera porque model post saca una consulta que selecciona el nombre y el username --}}
+    <p class="text-sm text-gray-500 ">{{$post->created_at->diffForHumans()}}</p> {{-- uso de la libreria carbon --}}
+</div>
+</div>
+
+        <div class="font-bold">
+            
+            <div class="bg-white rounded-lg mt-5">
+                <span class="font-bold">Descripción</span>
+                <p class="text-sm text-gray-500">
+                {{$post->descripcion}}
+                </p>
+            </div>
+
+            @auth
+                @if ($post->user_id == auth()->user()->id)
+                    <form action="{{route('posts.destroy', $post)}}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <input type="submit" value="Eliminar publicación" class="bg-red-500 hover:bg-red-600 p-2 rounded text-white mt-3 cursor-pointer">
+                    </form>
+                @endif
+            @endauth
+        </div>
+    </div>
 
 
     <div class="md:w-1/2 p-5">
@@ -68,10 +91,11 @@
             <div class="bg-white shadow mb-5 max-h-96 overflow-y-scroll mt-10">
                 @if ($post->comentarios->count())
                 @foreach ($post->comentarios as $comentario)
-                    <div class="p-5 border-gray-300 border-b">
+                    <div class="p-5 border-red-700">
                         <a href="{{route('post.index', $comentario->user)}}" class="font-bold">{{$comentario->user->username}}</a>
                         <p>{{$comentario->comentario}}</p>
                         <p class="text-sm text-gray-500">{{$comentario->created_at->diffForHumans()}}</p>
+                        <hr>
                     </div>
                 @endforeach
                     @else
