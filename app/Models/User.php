@@ -47,6 +47,11 @@ class User extends Authenticatable
 
     public function posts() //funcion para relacionar un usuario con un post y recoger los datos del usuario
     {
-    return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 }

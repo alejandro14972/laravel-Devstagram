@@ -28,6 +28,20 @@ class Post extends Model
     { //relacion de comentarios . no es necesario crear una consulta where 
     return $this->hasMany(Comentario::class);
     }
+
+    public function likes() 
+    { 
+    return $this->hasMany(Like::class);
+    }
+
+    //evitar duplicados de me gustas
+
+    public function checkLike(User $user) 
+    { 
+        /* posicionarse en la tabla de likes. esta tabla de likes contiene este usuario de este post  */
+    return $this->likes->contains('user_id', $user->id);
+    }
+    
 }
 
 

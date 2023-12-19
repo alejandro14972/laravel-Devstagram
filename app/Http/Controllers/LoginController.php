@@ -20,9 +20,7 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' =>'required'
         ]);
-
-    
-
+        
         //autentica usuarios
         if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
            return back()->with('mensaje', 'Credenciales incorrectas');//si las credenciales son incorrectas enviamos este mensaje al login.blade
