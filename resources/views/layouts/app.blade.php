@@ -18,9 +18,11 @@
             {{-- <div class="md:w-1/12 lg:w-1/12 px-1">
                 <img src="{{ asset('img/logo.jpg') }}" alt="">
             </div> --}}
+            <a href="/">
             <h1 class="text-3xl font-black">
                 Devstagram
             </h1>
+            </a>
 
             @auth
             <nav class="flex gap-2 items-center">
