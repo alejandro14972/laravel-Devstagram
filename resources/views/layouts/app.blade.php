@@ -18,7 +18,7 @@
             {{-- <div class="md:w-1/12 lg:w-1/12 px-1">
                 <img src="{{ asset('img/logo.jpg') }}" alt="">
             </div> --}}
-            <a href="/">
+            <a href="{{route('home')}}">
             <h1 class="text-3xl font-black">
                 Devstagram
             </h1>

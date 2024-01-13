@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('titulo')
@@ -9,3 +10,4 @@
         Contenido principal. Nuevo contenido
         <h1>Bienvenido</h1>
 @endsection
+
