@@ -6,6 +6,6 @@
 
 
 @section('contenido')
-        Contenido principal. Nuevo contenido
+        Contenido principal. Nuevo contenido. nuevo contenido
         <h1>Bienvenido</h1>
 @endsection
