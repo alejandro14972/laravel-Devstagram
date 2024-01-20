@@ -19,14 +19,11 @@ class HomeController extends Controller
     {
 
         //obtener a quienes seguimos
-        $ids = auth()->user()->followings->pluck('id')->toArray(); //pluck traer ciertos campos en array(to array)
+        $ids = auth()->user()->followings->pluck('id')->toArray(); //pluck traer ciertos campos en array(to array) colecion de ids
 
         $post = Post::whereIn('user_id', $ids)->latest()->paginate(20); //el metodo where revisa un valor
         //where in revisa varios 
         //https://laravel.com/docs/10.x/queries#where-clauses
-
-
-
 
         return view('home', ['posts' => $post]);
     }
