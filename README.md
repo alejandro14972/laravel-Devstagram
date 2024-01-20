@@ -40,7 +40,7 @@ Create new project in laravel
   curl -s https://laravel.build/devstagram | bash
 ```
     
-Star server 
+Start server 
 ```bash
  ./vendor/bin/sail ip
 ```
@@ -66,18 +66,18 @@ recargar los cambios
   source ~/.bashrc
 ```
 
-Levantar servicio
+Up service
 
 ```bash
   sail up
 ```
 
-Parar servicio
+Stop service
 ```bash
   sail down
 ```
-Instalar composer
 
+Instalar composer
 https://getcomposer.org/
 
 Instalar Table plus
@@ -136,5 +136,5 @@ En la cabecera de app.blade.php
 ```
 ## Authors
 
-- [@alejandro14972](https://www.github.com/octokatherine)
+- [@alejandro14972](https://github.com/alejandro14972?tab=repositories)
 
