@@ -17,8 +17,7 @@
 <div class="md:w-1/2">
     <div class="p-3 flex items-center gap-4">
 @auth
-    
-
+       <livewire:like-post />
         @if ($post->checkLike(auth()->user()))
             <form action="{{route('posts.likes.destroy', $post)}}" method="post">
                 @method('DELETE')
@@ -41,10 +40,9 @@
                     </svg>
                 </button>
                 </div>
-                  
             </form>
         @endif
-        @endauth
+@endauth
         <p class="font-bold">{{$post->likes->count()}} <span class="font-normal">Likes</span></p> 
     </div>
 </div>
