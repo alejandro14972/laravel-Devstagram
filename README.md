@@ -1,140 +1,91 @@
 
-# Project Devstagram - Laravel
+# 📲 Red Social - Laravel App
 
-Aplicación web - Red social que permite crear usuarios, subir post, comentar los post, seguir a otros usarios, dar me gusta a los post.
+Esta es una aplicación web de Red Social desarrollada en Laravel, donde los usuarios pueden:
 
-
-## Installation
-
-Install with xampp or docker
-
-https://www.apachefriends.org/es/index.html
-https://www.docker.com/get-started/
-
-Si usas xampp no será necesario ejecuatar los siguientes comandos.
+- ✅ Registrarse e iniciar sesión
+- ✅ Crear y gestionar publicaciones (posts)
+- ✅ Comentar en los posts de otros usuarios
+- ✅ Seguir a otros usuarios y ver sus publicaciones
+- ✅ Dar "Me gusta" a los posts
 
 
-Install WSL2 - STEP 4 : https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers
+## 🛠 Tecnologías Utilizadas
 
-STEP 5: 
+- Laravel - Framework PHP
+- Livewire - Interactividad sin recargar la página
+- MySQL - Base de datos
+- Eloquent ORM - Gestión de datos
+- Blade - Motor de plantillas
+- TailwindCSS - Estilos de la interfaz
+
+
+
+
+## 📥 Instalación
+1️⃣ Requisitos Previos
+
+Asegúrate de tener instalado en tu sistema:
+- PHP (>= 8.0)
+- Composer
+- XAMPP
+- Node.js 
+
+2️⃣ Clonar el Repositorio
 ```bash
- wsl --set-default-version 2
+  git clone https://github.com/alejandro14972/laravel-Devstagram.git
+  cd nombre repositorio
 ```
 
-Commnand select distro: 
+3️⃣ Instalar Dependencias
 ```bash
-  wsl --install -d Ubuntu
+ composer install
+ npm run dev
+```
+4️⃣ Configurar Variables de Entorno
+```bash
+ cp .env.example .env 
 ```
 
-Configuración de user y password Ubuntu
-restart
-
-Open terminal PowerShell 
-
-```bash
-  wsl
-```
-
-Create new project in laravel
-```bash
-  curl -s https://laravel.build/devstagram | bash
-```
-    
-Start server 
-```bash
- ./vendor/bin/sail ip
-```
-
-Stop server
-```bash
-  ./vendor/bin/sail ip
-```
-
-Create alias sail
-```bash
-  sudo nano ~/.bashrc
-```
-bajar hasta abajo del todo y escribir
+Configura la base de datos en .env: 
+Crea previamente la bd en phpMyAdmin
 
 ```bash
-  alias sail = "./vendor/bin/sail"
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=red_social_db
+DB_USERNAME=root
+DB_PASSWORD=
 ```
-Finalemente guardar
-
-recargar los cambios
-```bash
-  source ~/.bashrc
-```
-
-Up service
+5️⃣ Generar Clave de la Aplicación
 
 ```bash
-  sail up
+php artisan key:generate
 ```
 
-Stop service
+6️⃣ Migrar y Poblar la Base de Datos
 ```bash
-  sail down
+php artisan migrate
 ```
-
-Instalar composer
-https://getcomposer.org/
-
-Instalar Table plus
-https://tableplus.com/
-
-Instalar Node
-https://nodejs.org/en
-
-Craer project
+7️⃣ Iniciar el Servidor
 ```bash
-  composer create-project laravel/laravel devstagram
+php artisan serve
 ```
 
-crear servidor artisan
-```bash
-  php artisan serve
-```
+📌 Funcionalidades
 
-Instalar tailwind css
-```bash
-  tailwind.config.js
-```
+- ✅ Registro e inicio de sesión con autenticación segura CORS
+- ✅ Publicación de posts con imagen y texto
+- ✅ Comentarios en publicaciones de otros usuarios
+- ✅ Seguir/Dejar de seguir a usuarios
+- ✅ Me gusta en publicaciones
+- ✅ Notificaciones en tiempo real (si usaste Pusher/WebSockets)
+- ✅ Perfil de usuario con foto y descripción
+- ✅ Sistema de feed mostrando publicaciones de usuarios seguidos
 
-Configuración archivo tailwind.config.js
 
-```
-export default {
-  content: [
-    "./resources/**/*.blade.php",
-    "./resources/**/*.js", "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php"
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-```
-
-Configuración archivo css/app.css
-```
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-```
-
-Arrancar un servidor de desarrollo
-```bash
-  sail npm run dev
-```
-
-En la cabecera de app.blade.php
-
-```
-@vite('resources/css/app.css')
-@vite('resources/js/app.js')
-```
 ## Authors
 
-- [@alejandro14972](https://github.com/alejandro14972?tab=repositories)
+- [@alejandro14972](https://github.com/alejandro14972)
 
