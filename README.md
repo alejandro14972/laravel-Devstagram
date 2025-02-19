@@ -84,6 +84,9 @@ php artisan serve
 - ✅ Perfil de usuario con foto y descripción
 - ✅ Sistema de feed mostrando publicaciones de usuarios seguidos
 
+🖼 Capturas de Pantalla
+![image](https://github.com/user-attachments/assets/6cbce3b9-de9c-42a7-962c-6df9c227a27b)
+
 
 ## Authors
 
